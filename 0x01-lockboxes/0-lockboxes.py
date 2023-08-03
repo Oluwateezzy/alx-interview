@@ -8,7 +8,7 @@ def canUnlockAll(boxes):
     """
     lockboxes
     """
-    visited = []
+    visited = set()
 
     def dfs(boxNumber):
         """

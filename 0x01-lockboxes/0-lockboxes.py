@@ -14,7 +14,7 @@ def canUnlockAll(boxes):
         """
         lockboxes
         """
-        visited.append(boxNumber)
+        visited.add(boxNumber)
         for key in boxes[boxNumber]:
             if key not in visited:
                 dfs(key)

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Log static files"""
+"""Log statiiic files"""
 
 import sys
 

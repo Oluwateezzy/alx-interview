@@ -13,7 +13,6 @@ def print_metrics(metrics):
             print(f"{status_code}: {metrics['status_codes'][status_code]}")
 
 
-
 def parse_line(line):
     """parse line"""
     split = line.strip().split()
@@ -25,10 +24,7 @@ def parse_line(line):
 
 if __name__ == "__main__":
     line_count = 0
-    metrics = {
-       "total_size": 0,
-        "status_codes": {} 
-    }
+    metrics = {"total_size": 0, "status_codes": {}}
     try:
         while True:
             line = input()
@@ -36,11 +32,11 @@ if __name__ == "__main__":
             if parsed_line:
                 ip, status_code, file_size = parsed_line
                 metrics["total_size"] += file_size
-                metrics["status_codes"][status_code] = metrics["status_codes"].get(status_code, 0) + 1
+                status_code_count = metrics["status_codes"].get(status_code, 0)
+                metrics["status_codes"][status_code] = status_code_count + 1
                 line_count += 1
                 if line_count == 10:
                     print_metrics(metrics)
                     line_count = 0
     except (KeyboardInterrupt, EOFError):
         print_metrics(metrics)
-        

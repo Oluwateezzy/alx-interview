@@ -30,7 +30,8 @@ if __name__ == "__main__":
         "status_codes": {} 
     }
     try:
-        for line in sys.stdin:
+        while True:
+            line = input()
             parsed_line = parse_line(line)
             if parsed_line:
                 ip, status_code, file_size = parsed_line

@@ -16,10 +16,12 @@ def validUTF8(data: List[int]) -> bool:
                 count = 2
             elif (num >> 3) == 0b11110:
                 count = 3
-            elif (num >> 7) != 0:
+            elif (num >> 7) == 0b0:
+                continue
+            else:
                 return False
         else:
             if (num >> 6) != 0b10:
                 return False
-            count -= 1
+        count -= 1
     return count == 0
